@@ -1,6 +1,8 @@
 module.exports = {
     name: `prune`,
     description: `Deletes the x most recent messages in the channel`,
+    args: true,
+    usage: `<number>`,
     execute(msg, args){
         const amount = args[0];
         if(isNaN(amount)){
