@@ -4,15 +4,14 @@ const Discord = require("discord.js");
 module.exports = {
     name: `message`,
     execute(msg, client){
-        if(!msg.content.startsWith(prefix) || msg.author.bot) return;
-
+        if(!msg.content.startsWith(prefix) || (msg.author.bot && !msg.webhookID)) return;
         // Parsing the command and arguments
         const args = msg.content.slice(prefix.length).trim().split(/ +/);
         const commandName = args.shift().toLowerCase();
-
+    
         // Get the command object if existing in commands folder
         const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-
+        
         if(!command) return msg.reply(`Invalid command`);
 
         if(command.args && !args.length){

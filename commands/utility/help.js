@@ -7,6 +7,6 @@ module.exports = {
     usage: `[command name]`,
     cooldown: 5,
     execute(message, args){
-
+        message.reply(`This command has not been implemented yet`);
     }
 }

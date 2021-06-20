@@ -8,6 +8,8 @@ const {prefix, token} = require("./config.json");
 const Discord = require("discord.js");
 // Creates a Discord client
 const client = new Discord.Client();
+
+require('discord-buttons')(client);
 // Create a Collection/Map
 client.commands = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
